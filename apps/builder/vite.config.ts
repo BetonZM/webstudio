@@ -104,13 +104,6 @@ export default defineConfig(({ mode }) => {
     server: {
       // Service-to-service OAuth token call requires a specified host for the localhost domain
       host: "localhost",
-      // Needed for SSL
-      proxy: {},
-
-      https: {
-        key: readFileSync("../../https/privkey.pem"),
-        cert: readFileSync("../../https/fullchain.pem"),
-      },
       cors: ((
         req: IncomingMessage,
         callback: (error: Error | null, options: CorsOptions | null) => void
@@ -118,7 +111,7 @@ export default defineConfig(({ mode }) => {
         // Handle CORS preflight requests in development to mimic Remix production behavior
         if (req.method === "OPTIONS" || req.method === "POST") {
           if (req.headers.origin != null && req.url != null) {
-            const url = new URL(req.url, `https://${req.headers.host}`);
+            const url = new URL(req.url, `http://${req.headers.host}`);
 
             // Allow CORS for /builder-logout path when requested from the authorization server
             if (url.pathname === "/builder-logout" && isBuilderUrl(url.href)) {

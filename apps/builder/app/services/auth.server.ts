@@ -29,7 +29,7 @@ export const callbackOrigin =
     : env.DEPLOYMENT_ENVIRONMENT === "staging" ||
         env.DEPLOYMENT_ENVIRONMENT === "development"
       ? `https://${transformRefToAlias(staticEnv.GITHUB_REF_NAME ?? "main")}.${env.DEPLOYMENT_ENVIRONMENT}.webstudio.is`
-      : `https://localhost:${env.PORT || 5173}`;
+      : `http://localhost:${env.PORT || 5173}`;
 
 const strategyCallback = async ({
   profile,
