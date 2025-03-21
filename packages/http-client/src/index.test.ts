@@ -1,13 +1,13 @@
 import { expect, test } from "vitest";
 import { parseBuilderUrl } from "./index";
 
-test("parseBuilderUrl wstd.dev", async () => {
+test("parseBuilderUrl localhost", async () => {
   expect(
-    parseBuilderUrl("https://p-090e6e14-ae50-4b2e-bd22-71733cec05bb.wstd.dev")
+    parseBuilderUrl("https://p-090e6e14-ae50-4b2e-bd22-71733cec05bb.localhost")
   ).toMatchInlineSnapshot(`
     {
       "projectId": "090e6e14-ae50-4b2e-bd22-71733cec05bb",
-      "sourceOrigin": "https://wstd.dev",
+      "sourceOrigin": "https://localhost",
     }
   `);
 });

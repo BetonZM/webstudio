@@ -102,8 +102,8 @@ export default defineConfig(({ mode }) => {
       "process.env.NODE_ENV": JSON.stringify(mode),
     },
     server: {
-      // Service-to-service OAuth token call requires a specified host for the wstd.dev domain
-      host: "wstd.dev",
+      // Service-to-service OAuth token call requires a specified host for the localhost domain
+      host: "localhost",
       // Needed for SSL
       proxy: {},
 

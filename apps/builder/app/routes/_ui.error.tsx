@@ -57,8 +57,8 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   preventCrossOriginCookie(request);
 
   // We leave it here because production errors in remix has a different behavior
-  // https://wstd.dev:5173/error?development-error=0
-  // https://wstd.dev:5173/error?development-error=1
+  // https://localhost:5173/error?development-error=0
+  // https://localhost:5173/error?development-error=1
   // ...
   const url = new URL(request.url);
   if (url.searchParams.has("development-error")) {

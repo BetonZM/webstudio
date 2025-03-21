@@ -27,11 +27,11 @@ certbot/dns-cloudflare certonly \
 --agree-tos \
 --noninteractive \
 -m istarkov@gmail.com \
--d wstd.dev \
--d '*.wstd.dev'
+-d localhost \
+-d '*.localhost'
 
 sudo chown -R $USER:$(id -g) /tmp/letsencrypt
 
-cp /tmp/letsencrypt/data/live/wstd.dev/fullchain.pem ./https/fullchain.pem
-cp /tmp/letsencrypt/data/live/wstd.dev/privkey.pem ./https/privkey.pem
+cp /tmp/letsencrypt/data/live/localhost/fullchain.pem ./https/fullchain.pem
+cp /tmp/letsencrypt/data/live/localhost/privkey.pem ./https/privkey.pem
 ```
