@@ -20,3 +20,8 @@ COPY library-scripts/*.sh /tmp/library-scripts/
 ENV DOCKER_BUILDKIT=1
 RUN apt-get update
 RUN /bin/bash /tmp/library-scripts/docker-in-docker-debian.sh
+
+# Copy and execute postinstall.sh
+COPY postinstall.sh /tmp/postinstall.sh
+RUN chmod +x /tmp/postinstall.sh
+RUN /tmp/postinstall.sh
